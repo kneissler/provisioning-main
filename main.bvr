@@ -1,1 +1,3 @@
 LOG Hello World!
+SERVER LISTEN PORT 8080
+SERVER ENDPOINT test triggered
