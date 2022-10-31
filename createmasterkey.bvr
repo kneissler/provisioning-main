@@ -1,0 +1,5 @@
+LOG Creating Git Beaver Master Key
+WARN Beware: The master key should be only created in the first git beaver run
+SECURITY CREATE KEY PAIR 2048 INTO masterkey
+LOG Master key was created
+GCLOUD secrets list --project=ai-coding

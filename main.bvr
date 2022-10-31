@@ -1,6 +1,4 @@
 LOG Executing Git Beaver Main
 SECURITY MASTERKEY PRESENT INTO keyfound
-LOG Master key was found: ${keyfound}
-SERVER LISTEN PORT 8080
-SERVER ENDPOINT test triggered
-SERVER ENDPOINT shutdown shutdown
+IF ${keyfound} THEN startserver ELSE createmasterkey
+LOG Terminating Git Beaver Main
