@@ -1,6 +1,6 @@
 LOG Creating Git Beaver Master Key
 WARN Beware: The master key should be only created in the first git beaver run
-WITH NEW MASTER KEY 2048 BITS GCLOUD gcloud secrets versions add secret-id --data-file=${secret}
+WITH NEW MASTER KEY 2048 BITS GCLOUD secrets versions add secret-id --data-file=${${secret}}
 LOG Master key was created
 LOG Restarting gitbeaver
 #EXECUTE shutdown
