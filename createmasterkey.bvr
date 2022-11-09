@@ -3,4 +3,4 @@ WARN Beware: The master key should be only created in the first git beaver run
 WITH NEW MASTER KEY 2048 BITS GCLOUD secrets versions add gitbeaver-masterkey --data-file %
 LOG Master key was created
 LOG Restarting gitbeaver
-#EXECUTE shutdown
+EXECUTE shutdown
