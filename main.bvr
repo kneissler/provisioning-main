@@ -1,4 +1,4 @@
 LOG Executing Git Beaver Main in Kneissler/test-main
-SECURITY MASTERKEY PRESENT INTO keyfound
+SECURITY MASTERKEY PRESENT => keyfound
 LOG KeyFound: ${keyfound}
 LOG Terminating Git Beaver Main
