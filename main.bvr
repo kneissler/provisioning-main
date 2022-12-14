@@ -1,4 +1,4 @@
-LOG Executing Git Beaver Main
+LOG Executing Git Beaver Main in Kneissler/test-main
 SECURITY MASTERKEY PRESENT INTO keyfound
-IF ${keyfound} THEN startserver ELSE startserver-no-security
+LOG KeyFound: ${keyfound}
 LOG Terminating Git Beaver Main
