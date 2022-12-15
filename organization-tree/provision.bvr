@@ -1,0 +1,29 @@
+LOG Provisioning of GCP organization tree
+#
+# Shortcut for scripts and config folder
+SET scripts organization-tree
+SET config organization-structure
+#
+# Pull configuration repo
+GIT CLONE https://github.com/kneissler ${config}
+#
+# Decompose the markdown file
+MARKDOWN DECOMPOSE ${config}/README.md decomposed/readme
+#
+# read the organization id from the yaml in the second readme section
+YAML DECOMPOSE decomposed/readme/section-2/yaml-1 decomposed/organization-id-yaml
+SETTINGS decomposed/organization-id-yaml/entry-0/meta
+SET organization-id ${value}
+#
+# read billing accounts table
+FOR row IN decomposed/readme/section-3/table-1 MATCHING row-# DO ${scripts}/set-billing-account
+#
+# Decompose the yaml containing the tree structure
+YAML DECOMPOSE decomposed/readme/section-1/yaml-1 decomposed/tree-yaml
+#
+# recursively call add-folder-tf.bvr for all subfolders
+FOR folder IN decomposed/tree-yaml MATCHING entry-# DO ${scripts}/add-folder-tf
+#
+# apply terraform
+TERRAFORM init
+WITH SECRET dummy IN terraform-service-account.json TERRAFORM plan

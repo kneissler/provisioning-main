@@ -1,0 +1,7 @@
+LOG Read billing account from ${row}
+#
+# Read cells in row into variables
+SETTINGS ${row}
+#
+# set variable with prefix "billing-account-"
+SET billing-account-${Folder} ${BillingAccount}

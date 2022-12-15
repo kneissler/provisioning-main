@@ -1,0 +1,9 @@
+LOG Processing project ${project} in folder ${folder}
+#
+# Read meta info file
+SETTINGS ${project}/entry-0/meta
+#
+# resolve terraform template for folder and append to main.tf
+RESOLVE ${scripts}/gcp-project.tf.template resolved/gcp-project.tf
+ASSEMBLE resolved/gcp-project.tf assembled/main.tf
+

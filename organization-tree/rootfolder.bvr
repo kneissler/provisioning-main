@@ -1,0 +1,2 @@
+# use variable organization-id to identify parent folder
+SET parent-folder "organizations/${organization-id}"

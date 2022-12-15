@@ -1,0 +1,2 @@
+# use ancestor-2 meta info to identify parent folder (ancestor-1 is the current folder)
+SET parent-folder google_folder.${ancestor-2}.name

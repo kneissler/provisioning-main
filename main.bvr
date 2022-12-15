@@ -1,4 +1,2 @@
-LOG Executing Git Beaver Main in Kneissler/test-main
-SECURITY MASTERKEY PRESENT => keyfound
-LOG KeyFound: ${keyfound}
-LOG Terminating Git Beaver Main
+LOG Adding provisioning triggers
+SERVER TRIGGER organization-tree organization-tree/provision

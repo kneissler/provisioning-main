@@ -1,0 +1,8 @@
+# project ${key}
+resource "google_project" "${key}" {
+  name       = "${key}"
+  project_id = "${key}"
+  folder_id  = google_folder.${ancestor-3}.name
+  billing_account = "${billing-account}"
+}
+

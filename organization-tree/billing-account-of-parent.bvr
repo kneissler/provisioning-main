@@ -1,0 +1,3 @@
+# use billing account from parent
+SET billing-account-${key} ${billing-account-${ancestor-2}}
+SET billing-account ${billing-account-${key}}

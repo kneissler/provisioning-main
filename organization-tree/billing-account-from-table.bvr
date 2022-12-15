@@ -1,0 +1,2 @@
+# use billing account from table in readme
+SET billing-account ${billing-account-${key}}

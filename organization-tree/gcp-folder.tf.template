@@ -1,0 +1,6 @@
+# folder ${key}
+resource "google_folder" "${key}" {
+  display_name = "${key}"
+  parent       = ${parent-folder}
+}
+
