@@ -24,6 +24,8 @@ YAML DECOMPOSE decomposed/readme/section-1/yaml-1 decomposed/tree-yaml
 # recursively call add-folder-tf.bvr for all subfolders
 FOR folder IN decomposed/tree-yaml MATCHING entry-# DO ${scripts}/add-folder-tf
 #
+# add terraform remote state bucket specification
+ASSEMBLE ${scripts}/terraform-remote-state.tf assembled/main.tf
+#
 # apply terraform
-TERRAFORM init
-WITH SECRET dummy IN terraform-service-account.json TERRAFORM plan
+WITH SECRET ${scripts}/service-account.json IN FILE terraform-service-account.json EXECUTE ${scripts}/terraform IN assembled

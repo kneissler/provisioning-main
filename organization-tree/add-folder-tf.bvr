@@ -8,7 +8,6 @@ IF ancestor-2 THEN ${scripts}/subfolder ElSE ${scripts}/rootfolder
 #
 # set variable billing account (from table or from parent)
 IF billing-account-${key} THEN ${scripts}/billing-account-from-table ELSE ${scripts}/billing-account-of-parent
-DEBUG V
 #
 # resolve terraform template for folder and append to main.tf
 RESOLVE ${scripts}/gcp-folder.tf.template resolved/gcp-folder.tf

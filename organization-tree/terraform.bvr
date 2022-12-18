@@ -1,0 +1,3 @@
+TERRAFORM init
+TERRAFORM plan -out=plan.data
+TERRAFORM apply plan.data
