@@ -1,2 +1,4 @@
 /.idea/
 /test-main.iml
+/organization-tree/test/workdir/
+service-account.json
