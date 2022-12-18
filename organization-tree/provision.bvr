@@ -28,4 +28,4 @@ FOR folder IN decomposed/tree-yaml MATCHING entry-# DO ${scripts}/add-folder-tf
 ASSEMBLE ${scripts}/terraform-remote-state.tf assembled/main.tf
 #
 # apply terraform
-WITH SECRET ${scripts}/service-account.json IN FILE terraform-service-account.json EXECUTE ${scripts}/terraform IN assembled
+WITH SECRET ${scripts}/service-account.encrypted IN FILE terraform-service-account.json EXECUTE ${scripts}/terraform IN assembled
