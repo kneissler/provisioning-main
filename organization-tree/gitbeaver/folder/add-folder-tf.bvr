@@ -4,17 +4,17 @@ LOG Processing folder ${folder}
 SETTINGS ${folder}/meta
 #
 # set variable "parent-folder"
-IF ancestor-2 THEN ${scripts}/subfolder ElSE ${scripts}/rootfolder
+IF ancestor-2 THEN ${scripts}/folder/subfolder ElSE ${scripts}/folder/rootfolder
 #
 # set variable billing account (from table or from parent)
-IF billing-account-${key} THEN ${scripts}/billing-account-from-table ELSE ${scripts}/billing-account-of-parent
+IF billing-account-${key} THEN ${scripts}/billing-account/ba-from-table ELSE ${scripts}/billing-account/ba-of-parent
 #
 # resolve terraform template for folder and append to main.tf
-RESOLVE ${scripts}/gcp-folder.tf.template tmp/resolved/gcp-folder.tf
+RESOLVE ${terraform}/gcp-folder.tf.template tmp/resolved/gcp-folder.tf
 ASSEMBLE tmp/resolved/gcp-folder.tf tmp/assembled/main.tf
 #
 # call add-project-tf.bvr script for all element sub folders
-FOR project IN ${folder} MATCHING element-# DO ${scripts}/add-project-tf
+FOR project IN ${folder} MATCHING element-# DO ${scripts}/project/add-project-tf
 #
 # call this beaver script recursively for all sub entry sub folders
-FOR folder IN ${folder} MATCHING entry-# DO ${scripts}/add-folder-tf
+FOR folder IN ${folder} MATCHING entry-# DO ${scripts}/folder/add-folder-tf

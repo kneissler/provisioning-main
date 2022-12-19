@@ -4,6 +4,6 @@ LOG Processing project ${project} in folder ${folder}
 SETTINGS ${project}/entry-0/meta
 #
 # resolve terraform template for folder and append to main.tf
-RESOLVE ${scripts}/gcp-project.tf.template tmp/resolved/gcp-project.tf
+RESOLVE ${terraform}/gcp-project.tf.template tmp/resolved/gcp-project.tf
 ASSEMBLE tmp/resolved/gcp-project.tf tmp/assembled/main.tf
 

@@ -1,11 +1,14 @@
 LOG Provisioning of GCP organization tree
 #
-# Shortcut for scripts and config folder
-SET scripts organization-tree
+# Settings
+SET scripts organization-tree/gitbeaver
+SET terraform organization-tree/terraform
+SET service-account organization-tree/service-account/service-account.json
+SET config-repo https://github.com/kneissler
 SET config organization-structure
 #
 # Pull configuration repo
-GIT CLONE https://github.com/kneissler ${config}
+GIT CLONE ${config-repo} ${config}
 #
 # Decompose the markdown file
 MARKDOWN DECOMPOSE ${config}/README.md tmp/decomposed/readme
@@ -16,19 +19,19 @@ SETTINGS tmp/decomposed/organization-id-yaml/entry-0/meta
 SET organization-id ${value}
 #
 # read billing accounts table
-FOR row IN tmp/decomposed/readme/section-3/table-1 MATCHING row-# DO ${scripts}/set-billing-account
+FOR row IN tmp/decomposed/readme/section-3/table-1 MATCHING row-# DO ${scripts}/billing-account/set-ba
 #
 # Decompose the yaml containing the tree structure
 YAML DECOMPOSE tmp/decomposed/readme/section-1/yaml-1 tmp/decomposed/tree-yaml
 #
 # recursively call add-folder-tf.bvr for all subfolders
-FOR folder IN tmp/decomposed/tree-yaml MATCHING entry-# DO ${scripts}/add-folder-tf
+FOR folder IN tmp/decomposed/tree-yaml MATCHING entry-# DO ${scripts}/folder/add-folder-tf
 #
 # add terraform remote state bucket specification
-ASSEMBLE ${scripts}/terraform-remote-state.tf tmp/assembled/main.tf
+ASSEMBLE ${terraform}/terraform-remote-state.tf tmp/assembled/main.tf
 #
 # apply terraform
-WITH SECRET ${scripts}/service-account.encrypted IN FILE terraform-service-account.json EXECUTE ${scripts}/terraform IN tmp/assembled
+WITH SECRET ${service-account} IN FILE terraform-service-account.json EXECUTE ${scripts}/terraform IN tmp/assembled
 #
 # cleanup tmp directory
 CLEANUP tmp

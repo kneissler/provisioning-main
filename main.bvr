@@ -1,2 +1,2 @@
 LOG Adding provisioning triggers
-SERVER TRIGGER organization-tree organization-tree/provision
+SERVER TRIGGER organization-tree organization-tree/gitbeaver/provision
