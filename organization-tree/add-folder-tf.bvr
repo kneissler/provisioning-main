@@ -10,8 +10,8 @@ IF ancestor-2 THEN ${scripts}/subfolder ElSE ${scripts}/rootfolder
 IF billing-account-${key} THEN ${scripts}/billing-account-from-table ELSE ${scripts}/billing-account-of-parent
 #
 # resolve terraform template for folder and append to main.tf
-RESOLVE ${scripts}/gcp-folder.tf.template resolved/gcp-folder.tf
-ASSEMBLE resolved/gcp-folder.tf assembled/main.tf
+RESOLVE ${scripts}/gcp-folder.tf.template tmp/resolved/gcp-folder.tf
+ASSEMBLE tmp/resolved/gcp-folder.tf tmp/assembled/main.tf
 #
 # call add-project-tf.bvr script for all element sub folders
 FOR project IN ${folder} MATCHING element-# DO ${scripts}/add-project-tf
