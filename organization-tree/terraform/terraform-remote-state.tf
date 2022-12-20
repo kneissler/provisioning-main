@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "kneissler-gitbeaver-terraform-state"
+    bucket  = "gitbeaver-terraform-state"
     prefix  = "terraform/state"
   }
 }
