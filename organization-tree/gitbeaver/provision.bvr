@@ -31,8 +31,7 @@ FOR folder IN tmp/decomposed/tree-yaml MATCHING entry-# DO ${scripts}/folder/add
 ASSEMBLE ${terraform}/terraform-remote-state.tf tmp/assembled/main.tf
 #
 # apply terraform
-EXECUTE ${scripts}/terraform-init IN tmp/assembled
-WITH SECRET ${service-account-secret} IN FILE terraform-service-account.json EXECUTE ${scripts}/terraform-plan-apply IN tmp/assembled
+WITH SECRET ${service-account-secret} IN FILE terraform-service-account.json EXECUTE ${scripts}/terraform IN tmp/assembled
 #
 # cleanup tmp directory
 CLEANUP tmp
