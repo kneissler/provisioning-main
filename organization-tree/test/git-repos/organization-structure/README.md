@@ -16,10 +16,10 @@ The following section defines the organization tree (folders and projects)
 kneissler-com:
   folder1:
     subfolder:
-      - kneiss-test-xyz-001: data
+      - kneiss-test-abc-001: data
   folder2:
-    - kneiss-test-xyz-003: playground
-    - kneiss-test-xyz-002: mlops
+    - kneiss-test-abc-003: playground
+    - kneiss-test-abc-002: mlops
 ```
 
 Projects names must follow the following naming conventions:
