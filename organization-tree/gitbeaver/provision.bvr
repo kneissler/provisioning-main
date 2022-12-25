@@ -8,7 +8,7 @@ SET config-repo https://github.com/kneissler
 SET config organization-structure
 #
 # Pull configuration repo
-GIT CLONE ${config-repo} ${config}
+GIT CLONE OR PULL ${config-repo} ${config}
 #
 # Decompose the markdown file
 MARKDOWN DECOMPOSE ${config}/README.md tmp/decomposed/readme
